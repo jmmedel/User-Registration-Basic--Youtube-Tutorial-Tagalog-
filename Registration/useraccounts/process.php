@@ -14,7 +14,7 @@ if(isset($_POST)){
 	$lastname 		= $_POST['lastname'];
 	$email 			= $_POST['email'];
 	$phonenumber	= $_POST['phonenumber'];
-	$password 		= sha1($_POST['password']);
+	$password =  password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 		$sql = "INSERT INTO users (firstname, lastname, email, phonenumber, password ) VALUES(?,?,?,?,?)";
 		$stmtinsert = $db->prepare($sql);
